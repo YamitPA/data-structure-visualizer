@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import HomePage from './components/HomePage'; // נתיב לעמוד הבית שלך
 import DetailPage from './components/DetailPage'; // נתיב לעמוד הפרטים שלך
 
-function App() {
+const App = () => {
   return (
     <Router>
       <div className="App">

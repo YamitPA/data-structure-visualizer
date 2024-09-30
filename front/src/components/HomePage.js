@@ -16,10 +16,10 @@ const HomePage = () => {
     };
 
     const goToDetails = () => {
-        if (selectedStructure && selectedAlgorithm) {
-            navigate('/detail'); // שנה את השורה הזו
+        if (selectedStructure || selectedAlgorithm) {
+            navigate('/details'); // שנה את השורה הזו
         } else {
-            alert("Please select both a data structure and an algorithm."); // התראה אם לא נבחרו אפשרויות
+            alert("Please select one data structure and an algorithm."); // התראה אם לא נבחרו אפשרויות
         }
     };
 
