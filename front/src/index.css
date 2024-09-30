@@ -1,0 +1,69 @@
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+/*General definitions*/
+body {
+  margin: 0;
+  font-family: 'Ariel', sans-serif;
+  background-color: rgba(255, 200, 200, 0.5); /*Light red background color*/
+  color: #333; /*Dark text color for good readability*/
+  background-image: url('./components/images/Background_image.PNG');
+  background-size: cover; /*To adjust the image to height and width*/
+  background-repeat: no-repeat; /*prevent repeating the image*/
+  background-blend-mode: overlay;
+}
+
+/*Design for the main container*/
+.App {
+  text-align: center;
+  padding: 20px;
+  backdrop-filter: blur(5px); /*Adds a blur effect to the background*/
+  border-radius: 10px; /*Circle corners*/
+  background-color: rgba(255, 255, 255, 0.8); /*Semi-transparent white background color*/
+}
+
+/*Header design*/
+h1 {
+  font-size: 2.5em;
+  color: #b30000; /*dark red color*/
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 2em;
+  color: #b30000; /*dark red color*/
+  margin-bottom: 10px;
+}
+
+/*Paragraph formatting*/
+p {
+  font-size: 1.2em;
+  color: #666; /*Dark gray color*/
+}
+
+/*Links*/
+.App-link {
+  color: #b30000; /*dark red color*/
+  text-decoration: none; /*without an underline*/
+}
+
+.App-link:hover {
+  text-decoration: underline; /*Underline when hovering*/
+}
+
+/*The design of the footer*/
+.footer {
+  margin-top: 20px;
+  font-size: 0.8em;
+  color: #888; /*Dark gray color*/
+}
+
+/*Dealing with images*/
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+

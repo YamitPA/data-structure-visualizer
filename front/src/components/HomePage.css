@@ -1,0 +1,54 @@
+/* סגנון לדף הבית */
+.home-container {
+    text-align: center;
+    padding: 20px;
+    position: relative; /* מאפשר למקם את הרקע באופן מוחלט */
+    min-height: 100vh; /* לוודא שהקונטיינר ממלא את כל גובה החלון */
+    overflow: hidden; /* לא להראות את התמונה מעבר לגבולות */
+}
+
+.background-image {
+    position: absolute; /* מיקום מוחלט */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('./images/Background_image.PNG'); /* עדכן את הנתיב לתמונה */
+    background-size: cover; /* מכסה את כל הקונטיינר */
+    background-position: center; /* ממקם את התמונה במרכז */
+    background-repeat: no-repeat; /* לא לחזור על התמונה */
+    opacity: 0.5; /* שקיפות של 50% על התמונה */
+    z-index: -1; /* מוודא שהתמונה מתחת לתוכן */
+}
+
+/* סגנון לכותרת */
+.header {
+    margin-bottom: 20px;
+}
+
+/* סגנון לתוכן המרכזי */
+.main-content {
+    margin-top: 30px;
+}
+
+/* סגנון לכפתור */
+button {
+    margin-top: 20px; /* מרווח עליון של 20px */
+    padding: 10px 20px;
+    background-color: #c4627b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* הגדרת הכפתור בעת ריחוף */
+button:hover {
+    background-color: #45297a;
+}
+
+/* סגנון לפוטר */
+.footer {
+    margin-top: 20px;
+}
