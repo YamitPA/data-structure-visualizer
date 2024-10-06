@@ -11,7 +11,9 @@ const HomePage = () => {
 
     const goToDetails = () => {
         if (selectedStructure || selectedAlgorithm) {
-            navigate('/details');
+            navigate('/details', {
+                state: { selectedStructure, selectedAlgorithm } // העבר את הנתונים
+            });
         } else {
             alert("Please select one data structure and an algorithm.");
         }
