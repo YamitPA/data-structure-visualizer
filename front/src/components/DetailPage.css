@@ -2,6 +2,7 @@
 .detail-container {
     text-align: center;
     padding: 20px;
+    position: relative; /* מאפשר לכפתור למקם את עצמו יחסית לקונטיינר */
 }
 
 .header {
@@ -17,4 +18,21 @@
     padding: 10px;
     border: 1px solid #c4627b; /* שולי סביב האילוסטרציה */
     border-radius: 5px;
+}
+
+/* סגנון לכפתור חזרה הביתה */
+.back-button {
+    position: absolute;
+    bottom: 20px; /* מרחק מהתחתית */
+    left: 20px; /* מרחק מהצד השמאלי */
+    padding: 10px 20px;
+    background-color: #c4627b;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.back-button:hover {
+    background-color: #7a297a; /* שינוי צבע כשלוחצים */
 }
