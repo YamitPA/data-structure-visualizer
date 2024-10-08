@@ -1,10 +1,16 @@
+/* סגנון לדף הבית */
+.Queue-container {
+    display: flex; /* הופך את אלמנט העטיפה ל-Flexbox */
+    flex-direction: column; /* מסדר את הילדים בעמודה */
+    align-items: center; /* מרכז את הילדים (כולל .linked-list-display) */
+}
+
 .Queue-buttons {
-    position: absolute;
+    position: absolute; /* נשאיר את הכפתורים בצד ימין */
     right: 20px; /* הכפתורים יהיו במרחק 20px מצד ימין */
-    top: 90%; /* מיקום הכפתורים באמצע הגובה */
-    transform: translateY(-50%); /* שמירה על יישור אנכי מדויק */
+    top: 20%; /* מיקום הכפתורים גבוה מהמרכז */
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* סידור כפתורים בעמודה */
     align-items: flex-end; /* מיקום הכפתורים בכיוון ימין */
 }
 
@@ -18,4 +24,63 @@
     margin-bottom: 10px;
     padding: 10px 15px;
     cursor: pointer;
+    width: 100px; /* רוחב קבוע לכל הכפתורים */
+}
+
+.queue-display {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.queue {
+    display: flex; /* סידור בעזרת flexbox */
+    flex-wrap: wrap; /* מעבר לשורות חדשות כאשר אין מקום */
+    justify-content: center; /* מרכז את הריבועים */
+    align-items: center; /* מיקום אנכי ממורכז */
+    max-width: 100%; /* התאמה לרוחב */
+}
+
+.queue-item {
+    width: 70px;
+    height: 70px;
+    border-radius: 8px; /* פינות מעוגלות */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.5px 0.5px 10px 0.5px; /* בלי מרווח בצדדים, ומרווח של 10px מתחת */
+    border: 1px solid #333; /* מסגרת בעובי 2 פיקסלים בצבע כהה */
+    font-size: 18px; /* גודל הטקסט בתוך הריבועים */
+    font-weight: bold; /* טקסט מודגש */
+    color: white; /* צבע הטקסט */
+    
+}
+
+/* האיבר הראשון */
+.queue-item:first-child {
+    background-color: #ff5833be; /* צבע אדום כהה */
+}
+
+/* האיבר האחרון */
+.queue-item:last-child {
+    background-color: #33c2ff98; /* צבע כחול */
+}
+
+/* כל שאר האיברים */
+.queue-item:not(:first-child):not(:last-child) {
+    background-color: #28a74688; /* צבע ירוק */
+}
+
+
+/* סגנון הפוטר של העמוד */
+.footer {
+    margin-top: 110px; /* מרווח למטה */
+    text-align: center; /* יישור מרכזי */
 }
