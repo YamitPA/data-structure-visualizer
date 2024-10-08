@@ -23,5 +23,11 @@ def remove_item():
 def get_list():
     return jsonify(linked_list.get_list()), 200
 
+@app.route('/list/clear', methods=['DELETE'])  # ה-route למחיקת הרשימה
+def clear_list():
+    linked_list.clear()  # הנחה שהוספת שיטה clear למחלקה LinkedList
+    return jsonify(linked_list.get_list()), 200
+
+
 if __name__ == '__main__':
     app.run(debug=True)

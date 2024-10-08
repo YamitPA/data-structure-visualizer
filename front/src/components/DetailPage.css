@@ -10,7 +10,7 @@
 }
 
 .main-content {
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 .illustration {
@@ -21,7 +21,7 @@
 /* סגנון לכפתור חזרה הביתה */
 .back-button {
     position: absolute;
-    bottom: 20px; /* מרחק מהתחתית */
+    bottom: 70px; /* מרחק מהתחתית */
     left: 20px; /* מרחק מהצד השמאלי */
     padding: 10px 20px;
     background-color: #c4627b;
