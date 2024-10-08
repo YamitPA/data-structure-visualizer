@@ -1,0 +1,68 @@
+/* סגנון לדף הבית */
+.linked-list-buttons {
+    position: absolute; /* מיקום יחסי לעיצוב */
+    right: 20px; /* הכפתורים יהיו במרחק 20px מצד ימין */
+    top: 20%; /* מיקום הכפתורים גבוה מהמרכז */
+    display: flex;
+    flex-direction: column; /* סידור כפתורים בעמודה */
+    align-items: flex-end; /* מיקום הכפתורים בכיוון ימין */
+}
+
+.linked-list-buttons input {
+    margin-bottom: 10px; /* מרווח בין שדה הטקסט לכפתורים */
+    padding: 8px;
+    width: 200px; /* גובה קבוע לשדה */
+}
+
+.linked-list-buttons button {
+    margin-bottom: 10px; /* מרווח בין כפתורים */
+    padding: 10px 15px; /* שטח לחיצה נעים */
+    cursor: pointer;
+}
+
+
+/* עיצוב לתצוגת הרשימה המקושרת */
+.linked-list-display {
+    display: flex;
+    justify-content: center; /* מרכז את כל המבנה לרוחב */
+    align-items: center; /* מיקום אנכי ממורכז */
+    margin-top: 60px; /* מרווח כדי למקם מתחת לכותרת */
+    padding: 10px;
+    background-color: #f9f9f9; /* רקע בהיר */
+    border: 1px solid #ddd; /* גבול קל סביב */
+    border-radius: 5px; /* פינות מעוגלות */
+    min-height: 100px; /* גובה מינימלי כדי למנוע דחיסה */
+}
+
+/* עיצוב לעיגולים */
+.linked-list {
+    display: flex; /* סידור בעזרת flexbox */
+    justify-content: center; /* מרכז את העיגולים */
+    align-items: center; /* מיקום אנכי ממורכז */
+}
+
+.node {
+    width: 50px; /* גובה ורוחב קבוע לעיגולים */
+    height: 50px;
+    background-color: #c4627b; /* צבע הרקע של העיגולים */
+    color: white; /* צבע הטקסט */
+    display: flex; /* סידור של תוכן בתוך העיגול */
+    justify-content: center; /* מרכז את הטקסט */
+    align-items: center; /* מיקום אנכי ממורכז */
+    border-radius: 50%; /* עיגול מושלם */
+    font-size: 18px; /* גודל טקסט */
+    margin: 0 10px; /* מרווחים בין העיגולים */
+}
+
+/* עיצוב לחיצים */
+.arrow {
+    font-size: 24px; /* גודל של החיצים */
+    margin: 0 10px; /* מרווחים בין העיגולים לחיצים */
+    color: #333; /* צבע החיצים */
+}
+
+/* סגנון הפוטר של העמוד */
+.footer {
+    margin-top: 40px; /* מרווח למטה */
+    text-align: center; /* יישור מרכזי */
+}
