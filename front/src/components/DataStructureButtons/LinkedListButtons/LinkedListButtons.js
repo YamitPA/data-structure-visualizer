@@ -20,6 +20,13 @@ const LinkedListButtons = () => {
         }
     };
 
+    // פונקציה שמופעלת בלחיצת מקש
+    const handleKeyDown = (event) => {
+        if (event.key === 'Enter') {
+            addItem(); // קרא לפונקציה להוספת פריט אם נלחץ אנטר
+        }
+    };
+
     // פונקציה להסרת פריט מהרשימה
     const removeItem = async () => {
         try {
@@ -45,19 +52,32 @@ const LinkedListButtons = () => {
         }
     };
 
-    return (
-        <div className="linked-list-buttons">
-            <input
-                type="text"
-                value={inputValue}
-                onChange={(e) => setInputValue(e.target.value)}
-                placeholder="Enter value for Linked List"
-            />
-            <button onClick={addItem}>Add Item</button>
-            <button onClick={removeItem}>Remove Item</button>
-            <button onClick={getList}>Get List</button>
+    const clearList = async () => {
+        try {
+            const response = await axios.delete('http://localhost:5000/list/clear');
+            setLinkedList(response.data);
+        } catch (error) {
+            console.error('Error clearing list:', error);
+        }
+    };
 
-            {/* כאן נציג את הרשימה עם העיגולים והחיצים */}
+
+    return (
+        <div className="linked-list-container"> {/* אלמנט עטיפה */}
+            <div className="linked-list-buttons">
+                <input
+                    type="text"
+                    value={inputValue}
+                    onChange={(e) => setInputValue(e.target.value)}
+                    onKeyDown={handleKeyDown} // הוסף את ההאזנה ללחיצה
+                    placeholder="Enter value for Linked List"
+                />
+                <button onClick={addItem}>Add Item</button>
+                <button onClick={removeItem}>Remove Item</button>
+                <button onClick={getList}>Get List</button>
+                <button onClick={clearList}>Clear List</button> {/* הכפתור למחיקת הרשימה */}
+            </div>
+
             <div className="linked-list-display">
                 {linkedList.length > 0 ? (
                     <div className="linked-list">

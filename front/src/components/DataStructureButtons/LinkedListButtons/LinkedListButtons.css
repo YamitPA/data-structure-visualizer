@@ -1,6 +1,12 @@
 /* סגנון לדף הבית */
+.linked-list-container {
+    display: flex; /* הופך את אלמנט העטיפה ל-Flexbox */
+    flex-direction: column; /* מסדר את הילדים בעמודה */
+    align-items: center; /* מרכז את הילדים (כולל .linked-list-display) */
+}
+
 .linked-list-buttons {
-    position: absolute; /* מיקום יחסי לעיצוב */
+    position: absolute; /* נשאיר את הכפתורים בצד ימין */
     right: 20px; /* הכפתורים יהיו במרחק 20px מצד ימין */
     top: 20%; /* מיקום הכפתורים גבוה מהמרכז */
     display: flex;
@@ -18,6 +24,7 @@
     margin-bottom: 10px; /* מרווח בין כפתורים */
     padding: 10px 15px; /* שטח לחיצה נעים */
     cursor: pointer;
+    width: 100px; /* רוחב קבוע לכל הכפתורים */
 }
 
 
@@ -32,13 +39,18 @@
     border: 1px solid #ddd; /* גבול קל סביב */
     border-radius: 5px; /* פינות מעוגלות */
     min-height: 100px; /* גובה מינימלי כדי למנוע דחיסה */
+    max-width: calc(100% - 290px); /* גבול צדדי של 20 פיקסלים */
+    margin-left: auto; /* ממרכז את הרשימה */
+    margin-right: auto; /* ממרכז את הרשימה */
 }
 
 /* עיצוב לעיגולים */
 .linked-list {
     display: flex; /* סידור בעזרת flexbox */
+    flex-wrap: wrap; /* מעבר לשורות חדשות כאשר אין מקום */
     justify-content: center; /* מרכז את העיגולים */
     align-items: center; /* מיקום אנכי ממורכז */
+    max-width: 100%; /* התאמה לרוחב */
 }
 
 .node {
@@ -51,7 +63,7 @@
     align-items: center; /* מיקום אנכי ממורכז */
     border-radius: 50%; /* עיגול מושלם */
     font-size: 18px; /* גודל טקסט */
-    margin: 0 10px; /* מרווחים בין העיגולים */
+    margin: 10px; /* מרווחים בין העיגולים */
 }
 
 /* עיצוב לחיצים */
@@ -63,6 +75,6 @@
 
 /* סגנון הפוטר של העמוד */
 .footer {
-    margin-top: 40px; /* מרווח למטה */
+    margin-top: 110px; /* מרווח למטה */
     text-align: center; /* יישור מרכזי */
 }
