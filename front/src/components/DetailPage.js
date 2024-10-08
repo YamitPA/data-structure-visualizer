@@ -1,10 +1,27 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom'; // ייבוא ה-hook useLocation
 import './DetailPage.css';
+import LinkedListButtons from './DataStructureButtons/LinkedListButtons/LinkedListButtons';
+import StackButtons from './DataStructureButtons/StackButtons/StackButtons';
+import QueueButtons from './DataStructureButtons/QueueButtons/QueueButtons';
 
 const DetailPage = () => {
     const location = useLocation(); // קבלת המיקום הנוכחי
     const { selectedStructure, selectedAlgorithm } = location.state || {}; // קבלת הנתונים מה-state
+
+    // פונקציה שתתאם בין מבנה הנתונים לקומפוננטה המתאימה
+    const renderButtons = () => {
+        switch (selectedStructure) {
+            case 'linked-lists':
+                return <LinkedListButtons />;
+            case 'stacks':
+                return <StackButtons />;
+            case 'queues':
+                return <QueueButtons />;
+            default:
+                return null;
+        }
+    };
 
     return (
         <div className="detail-container">
@@ -23,14 +40,14 @@ const DetailPage = () => {
                     ) : (
                         <p>Please select either a data structure or an algorithm.</p>
                     )}
-                    {/* ניתן להוסיף כאן את תמונת האילוסטרציה אם יש */}
-                    {selectedStructure && selectedAlgorithm && (
-                        <img
-                            src={`/path/to/illustrations/${selectedStructure}-${selectedAlgorithm}.png`}
-                            alt={`${selectedStructure} with ${selectedAlgorithm}`}
-                        />
-                    )}
+                    
                 </div>
+                {selectedStructure && (
+                    <div className="button-container">
+                        {/* כאן נציג את הכפתורים בהתאם לבחירה */}
+                        {renderButtons()}
+                    </div>
+                )}
                 <button className="back-button" onClick={() => window.history.back()}>
                     Back to Home
                 </button>
