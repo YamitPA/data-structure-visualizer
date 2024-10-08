@@ -33,3 +33,7 @@ class LinkedList:
             elements.append(current.data)
             current = current.next
         return elements
+    
+    def clear(self):
+        self.head = None  # מנקה את הראש של הרשימה
+    
