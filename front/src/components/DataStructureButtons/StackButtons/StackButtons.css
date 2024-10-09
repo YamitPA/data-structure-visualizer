@@ -1,7 +1,14 @@
+.Stack-container {
+    display: flex; /* הופך את אלמנט העטיפה ל-Flexbox */
+    flex-direction: column; /* מסדר את הילדים בעמודה */
+    align-items: center; /* מרכז את הילדים (כולל .linked-list-display) */
+    margin-top: 20px;
+}
+
 .Stack-buttons {
-    position: absolute;
+    position: fixed; /* הכפתורים קבועים ולא זזים */
     right: 20px; /* הכפתורים יהיו במרחק 20px מצד ימין */
-    top: 90%; /* מיקום הכפתורים באמצע הגובה */
+    top: 70%; /* מיקום הכפתורים באמצע הגובה */
     transform: translateY(-50%); /* שמירה על יישור אנכי מדויק */
     display: flex;
     flex-direction: column;
@@ -18,4 +25,74 @@
     margin-bottom: 10px;
     padding: 10px 15px;
     cursor: pointer;
+    width: 100px; /* רוחב קבוע לכל הכפתורים */
+}
+
+.Stack-display {
+    width: 300px; /* רוחב קבוע */
+    min-height: 50px; /* גובה התחלתי */
+    border: 2px solid #333;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column; /* הצגת האיברים בסדר */
+    justify-content: flex-end; /* דחיפה של האיברים למעלה */
+    align-items: stretch; /* יישור רוחב האיברים */
+    padding: 10px;
+    margin-top: 20px; /* מרווח בין המחסנית לכפתורים */
+    transition: height 0.3s ease; /* אנימציה של הגובה */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* צל סביב המלבן */
+}
+
+.Stack-display ul {
+    list-style-type: none; /* מסיר את הנקודות המקדימות */
+    padding: 0; /* מסיר את הריפוד של הרשימה */
+    margin: 0; /* מסיר את המרווח של הרשימה */
+}
+
+.Stack-item {
+    width: 100%; /* רוחב האיבר בהתאם לרוחב המחסנית */
+    padding: 10px;
+    margin: 5px 0;
+    background-color: #4caf50; /* צבע רקע ירוק */
+    color: white;
+    text-align: center;
+    border-radius: 4px;
+    font-weight: bold;
+    border: 1px solid #333; /* מסגרת סביב כל איבר */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* צל סביב האיבר */
+}
+
+.Stack-display li {
+    width: 90%; /* רוחב האיבר בהתאם לרוחב המחסנית */
+    padding: 10px; /* ריפוד פנימי */
+    margin: 5px 0; /* מרווח בין האיברים */
+    background-color: #44cd64b1; /* צבע רקע ירוק */
+    color: white; /* צבע הטקסט */
+    text-align: center; /* יישור הטקסט */
+    border: 1px solid #333; /* מסגרת סביב כל איבר */
+    border-radius: 4px; /* פינות מעוגלות */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* צל סביב האיבר */
+}
+
+/* הוספת קו מפריד בין האיברים */
+.Stack-item + .Stack-item {
+    border-top: 1px solid #333; /* קו מפריד בין האיברים */
+}
+
+.Stack-empty {
+    font-style: italic;
+    color: #777;
+    margin-top: 10px;
+}
+
+.Stack-item.first-item {
+    background-color: #ff9900af; /* צבע רקע שונה עבור האיבר הראשון */
+    font-weight: bold; /* ניתן גם להדגיש את הטקסט אם תרצה */
+}
+
+/* סגנון הפוטר של העמוד */
+.footer {
+    margin-top: 110px; /* מרווח למטה */
+    text-align: center; /* יישור מרכזי */
 }
