@@ -3,6 +3,8 @@ from flask_cors import CORS  # ייבוא CORS
 from data_structures.linked_list import LinkedList  # ייבוא הרשימה המקושרת
 from data_structures.queue import Queue  # ייבוא התור
 from data_structures.stack import Stack  # ייבוא המחסנית
+from data_structures.graph import Graph  # ייבוא הגרף
+
 
 
 app = Flask(__name__)
@@ -11,6 +13,8 @@ CORS(app)  # אפשר CORS עבור היישום Flask
 linked_list = LinkedList()  # יצירת מופע של הרשימה המקושרת
 queue = Queue() # יצירת מופע של התור
 stack = Stack()  # יצירת מופע של המחסנית
+graph = Graph()  # יצירת מופע של הגרף
+
 
 # ----- נתיבים עבור הרשימה המקושרת -----
 
@@ -95,6 +99,44 @@ def get_stack():
 def clear_stack():
     stack.clear()  # מחיקת כל הפריטים במחסנית
     return jsonify(stack.get_stack()), 200
+
+
+
+
+# ----- נתיבים עבור הגרף -----
+
+@app.route('/graph/node', methods=['POST'])
+def add_node():
+    data = request.json
+    node = data['node']
+    value = data.get('value', None)  # ערך אופציונלי לצומת
+    graph.add_node(node, value)
+    return jsonify({'nodes': graph.get_nodes(), 'edges': graph.get_edges()}), 200
+
+@app.route('/graph/node/<node>', methods=['DELETE'])
+def remove_node(node):
+    graph.remove_node(node)
+    return jsonify({'nodes': graph.get_nodes(), 'edges': graph.get_edges()}), 200
+
+@app.route('/graph/edge', methods=['POST'])
+def add_edge():
+    data = request.json
+    from_node = data['from']
+    to_node = data['to']
+    graph.add_edge(from_node, to_node)
+    return jsonify({'nodes': graph.get_nodes(), 'edges': graph.get_edges()}), 200
+
+@app.route('/graph/edge', methods=['DELETE'])
+def remove_edge():
+    data = request.json
+    from_node = data['from']
+    to_node = data['to']
+    graph.remove_edge(from_node, to_node)
+    return jsonify({'nodes': graph.get_nodes(), 'edges': graph.get_edges()}), 200
+
+@app.route('/graph', methods=['GET'])
+def get_graph():
+    return jsonify({'nodes': graph.get_nodes(), 'edges': graph.get_edges()}), 200
 
 
 
