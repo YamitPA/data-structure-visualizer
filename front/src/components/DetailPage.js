@@ -4,6 +4,8 @@ import './DetailPage.css';
 import LinkedListButtons from './DataStructureButtons/LinkedListButtons/LinkedListButtons';
 import StackButtons from './DataStructureButtons/StackButtons/StackButtons';
 import QueueButtons from './DataStructureButtons/QueueButtons/QueueButtons';
+import GraphButtons from './DataStructureButtons/GraphButtons/GraphButtons';
+
 
 const DetailPage = () => {
     const location = useLocation(); // קבלת המיקום הנוכחי
@@ -18,6 +20,8 @@ const DetailPage = () => {
                 return <StackButtons />;
             case 'queues':
                 return <QueueButtons />;
+            case 'graphs':  
+                return <GraphButtons />;
             default:
                 return null;
         }
