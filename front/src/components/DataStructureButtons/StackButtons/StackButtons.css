@@ -1,14 +1,16 @@
 .Stack-container {
-    display: flex; /* הופך את אלמנט העטיפה ל-Flexbox */
-    flex-direction: column; /* מסדר את הילדים בעמודה */
-    align-items: center; /* מרכז את הילדים (כולל .linked-list-display) */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-top: 20px;
+    height: 500px; /* גובה קבוע, אפשר לשנות בהתאם לצורך */
+    overflow: hidden; /* למנוע גלילה נוספת מחוץ לקונטיינר */
 }
 
 .Stack-buttons {
     position: fixed; /* הכפתורים קבועים ולא זזים */
     right: 20px; /* הכפתורים יהיו במרחק 20px מצד ימין */
-    top: 70%; /* מיקום הכפתורים באמצע הגובה */
+    top: 40%; /* מיקום הכפתורים באמצע הגובה */
     transform: translateY(-50%); /* שמירה על יישור אנכי מדויק */
     display: flex;
     flex-direction: column;
@@ -43,7 +45,7 @@
 
 .Stack-display {
     width: 300px; /* רוחב קבוע */
-    min-height: 50px; /* גובה התחלתי */
+    max-height: 400px; /* גובה מקסימלי למחסנית */
     border: 2px solid #333;
     border-radius: 8px;
     background-color: #f9f9f9;
@@ -52,8 +54,8 @@
     justify-content: flex-end; /* דחיפה של האיברים למעלה */
     align-items: stretch; /* יישור רוחב האיברים */
     padding: 10px;
-    margin-top: 20px; /* מרווח בין המחסנית לכפתורים */
-    transition: height 0.3s ease; /* אנימציה של הגובה */
+    margin-top: 10px; /* מרווח בין המחסנית לכפתורים */
+    overflow-y: auto; /* יצירת גלילה כאשר יש יותר מדי אלמנטים */
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* צל סביב המלבן */
 }
 
@@ -61,6 +63,8 @@
     list-style-type: none; /* מסיר את הנקודות המקדימות */
     padding: 0; /* מסיר את הריפוד של הרשימה */
     margin: 0; /* מסיר את המרווח של הרשימה */
+    max-height: 100%; /* כדי להתאים את הרשימה לקונטיינר */
+    overflow-y: auto; /* גלילה לרשימה עצמה */
 }
 
 .Stack-display li {
