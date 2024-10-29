@@ -138,7 +138,10 @@ def remove_edge():
 def get_graph():
     return jsonify({'nodes': graph.get_nodes(), 'edges': graph.get_edges()}), 200
 
-
+@app.route('/graph', methods=['DELETE'])
+def delete_graph():
+    graph.clear_graph()  # מנקה את הגרף
+    return jsonify({'nodes': graph.get_nodes(), 'edges': graph.get_edges()}), 200
 
 if __name__ == '__main__':
     app.run(debug=True)
