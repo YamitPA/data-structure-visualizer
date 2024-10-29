@@ -79,11 +79,12 @@ const LinkedListButtons = () => {
             </div>
 
             <div className="linked-list-display">
+                {console.log('LinkedList state:', linkedList)} {/* לוג למצב הרשימה */}
                 {linkedList.length > 0 ? (
                     <div className="linked-list">
                         {linkedList.map((item, index) => (
                             <React.Fragment key={index}>
-                                <div className="node">{item}</div>
+                                <div className="linked-list-node">{item}</div>
                                 {index < linkedList.length - 1 && <div className="arrow">→</div>}
                             </React.Fragment>
                         ))}
@@ -92,6 +93,7 @@ const LinkedListButtons = () => {
                     <p>The list is empty</p>
                 )}
             </div>
+            {console.log(linkedList)} {/* הוספת לוג לקונסולה */}
         </div>
     );
 };

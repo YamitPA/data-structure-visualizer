@@ -3,12 +3,15 @@
     display: flex; /* הופך את אלמנט העטיפה ל-Flexbox */
     flex-direction: column; /* מסדר את הילדים בעמודה */
     align-items: center; /* מרכז את הילדים (כולל .linked-list-display) */
+    margin-top: 20px;
+    height: 400px; /* גובה קבוע, אפשר לשנות בהתאם לצורך */
+    overflow: hidden; /* למנוע גלילה נוספת מחוץ לקונטיינר */
 }
 
 .linked-list-buttons {
     position: absolute; /* נשאיר את הכפתורים בצד ימין */
     right: 20px; /* הכפתורים יהיו במרחק 20px מצד ימין */
-    top: 20%; /* מיקום הכפתורים גבוה מהמרכז */
+    top: 15%; /* מיקום הכפתורים גבוה מהמרכז */
     display: flex;
     flex-direction: column; /* סידור כפתורים בעמודה */
     align-items: flex-end; /* מיקום הכפתורים בכיוון ימין */
@@ -33,7 +36,7 @@
     display: flex;
     justify-content: center; /* מרכז את כל המבנה לרוחב */
     align-items: center; /* מיקום אנכי ממורכז */
-    margin-top: 60px; /* מרווח כדי למקם מתחת לכותרת */
+    margin-top: 20px; /* מרווח כדי למקם מתחת לכותרת */
     padding: 10px;
     background-color: #f9f9f9; /* רקע בהיר */
     border: 1px solid #ddd; /* גבול קל סביב */
@@ -42,6 +45,7 @@
     max-width: calc(100% - 290px); /* גבול צדדי של 20 פיקסלים */
     margin-left: auto; /* ממרכז את הרשימה */
     margin-right: auto; /* ממרכז את הרשימה */
+    overflow-y: auto; /* יצירת גלילה כאשר יש יותר מדי אלמנטים */
 }
 
 /* עיצוב לעיגולים */
@@ -51,11 +55,13 @@
     justify-content: center; /* מרכז את העיגולים */
     align-items: center; /* מיקום אנכי ממורכז */
     max-width: 100%; /* התאמה לרוחב */
+    margin: 0 auto; /* מרכז את הרשימה */
 }
 
-.node {
+.linked-list-node {
     width: 50px; /* גובה ורוחב קבוע לעיגולים */
     height: 50px;
+    margin: 10px; /* מרווחים בין העיגולים */
     background-color: #c4627b; /* צבע הרקע של העיגולים */
     color: white; /* צבע הטקסט */
     display: flex; /* סידור של תוכן בתוך העיגול */
@@ -63,7 +69,7 @@
     align-items: center; /* מיקום אנכי ממורכז */
     border-radius: 50%; /* עיגול מושלם */
     font-size: 18px; /* גודל טקסט */
-    margin: 10px; /* מרווחים בין העיגולים */
+    box-sizing: border-box; /* לוודא שה-padding וה-border נכללים ברוחב */
 }
 
 /* עיצוב לחיצים */
