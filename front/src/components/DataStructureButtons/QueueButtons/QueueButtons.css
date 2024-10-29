@@ -3,12 +3,15 @@
     display: flex; /* הופך את אלמנט העטיפה ל-Flexbox */
     flex-direction: column; /* מסדר את הילדים בעמודה */
     align-items: center; /* מרכז את הילדים (כולל .linked-list-display) */
+    margin-top: 20px;
+    height: 500px; /* גובה קבוע, אפשר לשנות בהתאם לצורך */
+    overflow: hidden; /* למנוע גלילה נוספת מחוץ לקונטיינר */
 }
 
 .Queue-buttons {
     position: absolute; /* נשאיר את הכפתורים בצד ימין */
     right: 20px; /* הכפתורים יהיו במרחק 20px מצד ימין */
-    top: 20%; /* מיקום הכפתורים גבוה מהמרכז */
+    top: 15%; /* מיקום הכפתורים גבוה מהמרכז */
     display: flex;
     flex-direction: column; /* סידור כפתורים בעמודה */
     align-items: flex-end; /* מיקום הכפתורים בכיוון ימין */
@@ -30,7 +33,7 @@
 .queue-display {
     display: flex;
     justify-content: center;
-    margin-top: 30px;
+    margin-top: 10px;
     padding: 20px;
     background-color: #f9f9f9;
     border-radius: 10px;
@@ -38,6 +41,8 @@
     width: 60%;
     margin-left: auto;
     margin-right: auto;
+    max-height: 400px; /* גובה מקסימלי לתור */
+    overflow-y: auto; /* יצירת גלילה כאשר יש יותר מדי אלמנטים */
 }
 
 .queue {
