@@ -46,6 +46,11 @@ class Graph:
         """קבלת כל הקשתות בגרף"""
         return [(from_node, to_node) for from_node, to_list in self.edges.items() for to_node in to_list]
 
+    def clear_graph(self):
+        """מחיקת כל הצמתים והקשתות מהגרף"""
+        self.nodes.clear()  # מסיר את כל הצמתים
+        self.edges.clear()  # מסיר את כל הקשתות
+
     def __repr__(self):
         """ייצוג הגרף בצורה קריאה"""
         result = "Graph:\n"
