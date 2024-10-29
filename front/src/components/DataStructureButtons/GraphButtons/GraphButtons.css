@@ -52,7 +52,7 @@
     margin-top: 10px; 
 }
 
-.graph-container {
+.Graph-container {
     position: relative;
     width: 600px; /* רוחב הגרף */
     height: 400px; /* גובה הגרף */
@@ -63,7 +63,7 @@
     align-items: center;
 }
 
-.node {
+.Graph-node {
     position: absolute;
     width: 40px;
     height: 40px;
@@ -74,10 +74,23 @@
     justify-content: center;
     text-align: center;
     font-weight: bold;
+    z-index: 1;
 }
 
 .edge {
     position: absolute;
     background-color: black;
     height: 2px; /* Height for the edge */
+    transform-origin: left center;
+}
+
+.arrowhead {
+    width: 0;
+    height: 0;
+    border-left: 12px solid black; /* אורך החץ */
+    border-top: 8px solid transparent; /* רוחב חלק עליון */
+    border-bottom: 8px solid transparent; /* רוחב חלק תחתון */
+    position: absolute;
+    right: -6px; /* התאמת ראש החץ לקצה הקו */
+    top: -6px; /* התאמה אנכית כך שהחץ יישב במרכז הקו */
 }
