@@ -1,70 +1,70 @@
 import React, { useState } from 'react';
-import axios from 'axios'; // ייבוא axios לשליחת בקשות HTTP
-import './QueueButtons.css'; // ייבוא קובץ ה-CSS
+import axios from 'axios'; 
+import './QueueButtons.css'; 
 
 
 const QueueButtons = () => {
-    const [inputValue, setInputValue] = useState('');
-    const [queue, setQueue] = useState([]); // שמירה על מצב התור
+    const [inputValue, setInputValue] = useState(''); // State to store user input
+    const [queue, setQueue] = useState([]); // State to manage the current queue
 
-     // הוספת איבר לתור
+     // Function to add an item to the queue
      const enqueueItem = async () => {
         try {
             const response = await axios.post('http://localhost:5000/queue/enqueue', {
-                value: inputValue
+                value: inputValue // Sends the current input value to the server
             });
-            setQueue(response.data); // עדכון מצב התור
-            setInputValue(''); // נקה את הקלט
+            setQueue(response.data); // Updates the queue state with the response
+            setInputValue(''); // Clears the input field after enqueue
         } catch (error) {
             console.error('Error enqueuing item:', error);
         }
     };
 
-    // פונקציה שמופעלת בלחיצת מקש
+    // Function to handle key events
     const handleKeyDown = (event) => {
         if (event.key === 'Enter') {
-            enqueueItem(); // קרא לפונקציה להוספת פריט אם נלחץ אנטר
+            enqueueItem(); // Calls enqueue function if 'Enter' key is pressed
         }
     };
 
-     // הסרת איבר מהתור
+     // Function to remove the first item from the queue
      const dequeueItem = async () => {
         try {
             const response = await axios.delete('http://localhost:5000/queue/dequeue');
-            setQueue(response.data); // עדכון מצב התור לאחר הסרה
+            setQueue(response.data); // Updates queue state after dequeuing
         } catch (error) {
             console.error('Error dequeuing item:', error);
         }
     };
 
-     // קבלת התור הנוכחי
+     // Function to fetch the current queue from the server
      const getQueue = async () => {
         try {
             const response = await axios.get('http://localhost:5000/queue');
-            setQueue(response.data); // עדכון התור שהתקבל מהשרת
+            setQueue(response.data); // Sets queue state based on server response
         } catch (error) {
             console.error('Error getting queue:', error);
         }
     };
 
-    // מחיקת כל התור
+    // Function to clear the entire queue
     const clearQueue = async () => {
         try {
             const response = await axios.delete('http://localhost:5000/queue/clear');
-            setQueue(response.data); // עדכון התור לאחר המחיקה
+            setQueue(response.data); // Updates queue state after clearing it
         } catch (error) {
             console.error('Error clearing queue:', error);
         }
     };
 
     return (
-        <div className="Queue-container"> {/* אלמנט עטיפה */}
+        <div className="Queue-container"> 
             <div className="Queue-buttons">
                 <input
                     type="text"
                     value={inputValue}
-                    onChange={(e) => setInputValue(e.target.value)}
-                    onKeyDown={handleKeyDown} // הוסף את ההאזנה ללחיצה
+                    onChange={(e) => setInputValue(e.target.value)} // Updates input value on change
+                    onKeyDown={handleKeyDown} // Adds event listener for key presses
                     placeholder="Enter value for Queue"
                 />
                 <button onClick={enqueueItem}>Enqueue Item</button>
@@ -73,7 +73,7 @@ const QueueButtons = () => {
                 <button onClick={clearQueue}>Clear Queue</button>
             </div>
 
-            {/* הצגת התור */}
+            {/* Display of the queue*/}
             <div className="queue-display">
                 {queue.length > 0 ? (
                     <div className="queue">

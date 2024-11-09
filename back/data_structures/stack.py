@@ -1,35 +1,36 @@
 class Stack:
     def __init__(self):
+        # Initializes an empty stack using a list
         self.items = []
 
     def push(self, item):
-        """מוסיף פריט למחסנית (להתחלה של הרשימה)"""
-        self.items.insert(0, item)  # הוסף את הפריט לראש הרשימה
-        return self.items  # מחזיר את המחסנית לאחר הוספת הפריט
+        # Add an item to the top of the stack (start of the list)
+        self.items.insert(0, item)  # Insert the item at the beginning of the list
+        return self.items  # Returns the stack after adding the item
 
     def pop(self):
-        """מסיר את הפריט העליון במחסנית"""
+        # Remove the top item from the stack
         if not self.is_empty():
-            return self.items.pop(0)  # הסר את הפריט הראשון שנכנס
+            return self.items.pop(0)  # Remove and return the first item (top item)
         else:
-            raise IndexError("Stack is empty")
+            raise IndexError("Stack is empty") # Raise an error if the stack is empty
 
     def peek(self):
-        """מחזיר את הפריט העליון מבלי להסיר אותו"""
+        # Return the top item without removing it
         if not self.is_empty():
-            return self.items[0]  # מחזיר את הפריט האחרון ברשימה
+            return self.items[0]  # Returns the top item in the stack (first in the list)
         else:
-            raise IndexError("Stack is empty")
+            raise IndexError("Stack is empty") # Raise an error if the stack is empty
 
     def get_stack(self):
-        """מחזיר את כל הפריטים במחסנית"""
+        # Returns all the items in the stack
         return self.items
 
     def is_empty(self):
-        """בודק אם המחסנית ריקה"""
+        # Checks if the stack is empty
         return len(self.items) == 0
 
     def clear(self):
-        """מנקה את כל הפריטים מהמחסנית"""
+        # Clears all the items from the stack
         self.items = []
-        return self.items  # מחזיר מחסנית ריקה
+        return self.items 

@@ -1,0 +1,46 @@
+/* Styling for the general BFS page layout */
+.BfsPage-container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+/* Positioning of buttons on the page */
+.bfs-buttons {
+    position: fixed;
+    right: 20px;
+    top: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 20px; 
+    z-index: 1000;
+}
+
+/* Layout for the input field container */
+.input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; 
+    gap: 8px; 
+}
+
+/* Styling for the input field */
+input {
+    padding: 8px;
+    font-size: 16px;
+    width: 180px;
+}
+
+/* Aligning the add and remove buttons horizontally */
+.button-group {
+    display: flex;
+    gap: 8px; 
+}
+
+/* Styling for visited nodes in the graph */
+.Graph-node.visited {
+    background-color: yellow; 
+    border: 2px solid orange;
+}

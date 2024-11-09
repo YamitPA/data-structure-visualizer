@@ -1,102 +1,112 @@
+/* Centers content with fixed height */
 .Stack-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 20px;
-    height: 500px; /* גובה קבוע, אפשר לשנות בהתאם לצורך */
-    overflow: hidden; /* למנוע גלילה נוספת מחוץ לקונטיינר */
+    height: 500px; 
+    overflow: hidden; 
 }
 
+/* Fixed position of button panel on the right */
 .Stack-buttons {
-    position: fixed; /* הכפתורים קבועים ולא זזים */
-    right: 20px; /* הכפתורים יהיו במרחק 20px מצד ימין */
-    top: 40%; /* מיקום הכפתורים באמצע הגובה */
-    transform: translateY(-50%); /* שמירה על יישור אנכי מדויק */
+    position: fixed; 
+    right: 20px; 
+    top: 40%; 
+    transform: translateY(-50%); 
     display: flex;
     flex-direction: column;
-    align-items: flex-end; /* מיקום הכפתורים בכיוון ימין */
+    align-items: flex-end; 
 }
 
+/* Input field styling */
 .Stack-buttons input {
     margin-bottom: 10px;
     padding: 8px;
     width: 200px;
 }
 
+/* Button styles for stack operations */
 .Stack-buttons button {
     margin-bottom: 10px;
     padding: 10px 15px;
     cursor: pointer;
-    width: 100px; /* רוחב קבוע לכל הכפתורים */
+    width: 100px; 
 }
 
+/* Styling for individual stack items */
 .Stack-item {
-    width: 100%; /* רוחב האיבר בהתאם לרוחב המחסנית */
+    width: 100%; 
     padding: 10px;
     margin: 5px 0;
-    background-color: #4caf50; /* צבע רקע ירוק */
+    background-color: #4caf50; 
     color: white;
     text-align: center;
     border-radius: 4px;
     font-weight: bold;
-    border: 1px solid #333; /* מסגרת סביב כל איבר */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* צל סביב האיבר */
+    border: 1px solid #333; 
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
 }
 
+/* Display area with scroll for stack items */
 .Stack-display {
-    width: 300px; /* רוחב קבוע */
-    max-height: 400px; /* גובה מקסימלי למחסנית */
+    width: 300px; 
+    max-height: 400px; 
     border: 2px solid #333;
     border-radius: 8px;
     background-color: #f9f9f9;
     display: flex;
-    flex-direction: column; /* הצגת האיברים בסדר */
-    justify-content: flex-end; /* דחיפה של האיברים למעלה */
-    align-items: stretch; /* יישור רוחב האיברים */
+    flex-direction: column; 
+    justify-content: flex-end; 
+    align-items: stretch; 
     padding: 10px;
-    margin-top: 10px; /* מרווח בין המחסנית לכפתורים */
-    overflow-y: auto; /* יצירת גלילה כאשר יש יותר מדי אלמנטים */
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* צל סביב המלבן */
+    margin-top: 10px; 
+    overflow-y: auto; 
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); 
 }
 
+/* List container without default styles */
 .Stack-display ul {
-    list-style-type: none; /* מסיר את הנקודות המקדימות */
-    padding: 0; /* מסיר את הריפוד של הרשימה */
-    margin: 0; /* מסיר את המרווח של הרשימה */
-    max-height: 100%; /* כדי להתאים את הרשימה לקונטיינר */
-    overflow-y: auto; /* גלילה לרשימה עצמה */
+    list-style-type: none; 
+    padding: 0; 
+    margin: 0; 
+    max-height: 100%; 
+    overflow-y: auto; 
 }
 
+/* Styling for each list item in the stack */
 .Stack-display li {
-    width: 90%; /* רוחב האיבר בהתאם לרוחב המחסנית */
-    padding: 10px; /* ריפוד פנימי */
-    margin: 5px 0; /* מרווח בין האיברים */
-    background-color: #ff9900af; /* צבע רקע כתום */
-    color: white; /* צבע הטקסט */
-    text-align: center; /* יישור הטקסט */
-    border: 1px solid #333; /* מסגרת סביב כל איבר */
-    border-radius: 4px; /* פינות מעוגלות */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* צל סביב האיבר */
+    width: 90%; 
+    padding: 10px; 
+    margin: 5px 0; 
+    background-color: #ff9900af; 
+    color: white; 
+    text-align: center; 
+    border: 1px solid #333; 
+    border-radius: 4px; 
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
 }
 
-/* הוספת קו מפריד בין האיברים */
+/* Add a separator line between items */
 .Stack-item + .Stack-item {
-    border-top: 1px solid #333; /* קו מפריד בין האיברים */
+    border-top: 1px solid #333; 
 }
 
+/* Styling for empty stack message */
 .Stack-empty {
     font-style: italic;
     color: #777;
     margin-top: 10px;
 }
 
+/* Style for the top item in the stack */
 .Stack-item.first-item {
-    background-color: #44cd64b1; /* צבע רקע שונה עבור האיבר הראשון */
-    font-weight: bold; /* ניתן גם להדגיש את הטקסט אם תרצה */
+    background-color: #44cd64b1; 
+    font-weight: bold; 
 }
 
-/* סגנון הפוטר של העמוד */
+/* Footer style */
 .footer {
-    margin-top: 110px; /* מרווח למטה */
-    text-align: center; /* יישור מרכזי */
+    margin-top: 110px; 
+    text-align: center; 
 }

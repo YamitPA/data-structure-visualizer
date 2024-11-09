@@ -2,20 +2,21 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './HomePage.css';
 import SelectOption from './SelectOption';
-import { structures, algorithms } from './data'; // יבוא נתונים
+import { structures, algorithms } from './data'; 
 
 const HomePage = () => {
     const navigate = useNavigate();
     const [selectedStructure, setSelectedStructure] = useState('');
     const [selectedAlgorithm, setSelectedAlgorithm] = useState('');
 
+    // Navigate to the details page with the selected structure or algorithm
     const goToDetails = () => {
         if (selectedStructure || selectedAlgorithm) {
             navigate('/details', {
-                state: { selectedStructure, selectedAlgorithm } // העבר את הנתונים
+                state: { selectedStructure, selectedAlgorithm } // Pass selected data to details page
             });
         } else {
-            alert("Please select one data structure and an algorithm.");
+            alert("Please select one data structure and an algorithm."); // Prompt if no selection is made
         }
     };
 

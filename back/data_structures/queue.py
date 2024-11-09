@@ -1,31 +1,32 @@
 class Queue:
     def __init__(self):
+        # Initializes an empty queue using a list
         self.items = []
 
     def enqueue(self, item):
-        """מוסיף פריט לתור (בסוף הרשימה)"""
+        # Add an item to the end of the queue (list)
         self.items.append(item)
-        return self.items  # מחזיר את התור לאחר הוספת הפריט
-
+        return self.items  # Returns the queue after adding the item
+    
     def dequeue(self):
-        """מסיר ומחזיר את הפריט הראשון בתור (מההתחלה של הרשימה)"""
+        # Remove and return the first item from the queue (from the front of the list)
         if not self.is_empty():
-            return self.items.pop(0)  # הסרה של הפריט הראשון
+            return self.items.pop(0)  # Remove and return the first item
         else:
-            raise IndexError("Queue is empty")
+            raise IndexError("Queue is empty") # Raise an error if the queue is empty
 
     def get_queue(self):
-        """מחזיר את כל הפריטים בתור"""
+        # Returns all the items in the queue
         return self.items
 
     def is_empty(self):
-        """בודק אם התור ריק"""
+        # Checks if the queue is empty
         return len(self.items) == 0
 
     def size(self):
-        """מחזיר את מספר הפריטים בתור"""
+        # Returns the number of items in the queue
         return len(self.items)
 
     def clear(self):
-        """מנקה את התור"""
+        # Clears the queue by removing all items
         self.items.clear()

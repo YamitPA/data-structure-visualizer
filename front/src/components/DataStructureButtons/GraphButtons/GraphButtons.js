@@ -3,55 +3,60 @@ import axios from 'axios';
 import './GraphButtons.css';
 
 const GraphButtons = () => {
-    const [nodeValue, setNodeValue] = useState('');
-    const [edgeFrom, setEdgeFrom] = useState('');
-    const [edgeTo, setEdgeTo] = useState('');
-    const [graph, setGraph] = useState({ nodes: {}, edges: [] });
-    const [nodePositions, setNodePositions] = useState({}); // לשמירת מיקום קבוע לצמתים
-    const edgeToInput = React.useRef(null); // רפרנס לשדה הקלט של `edgeTo`
+    const [nodeValue, setNodeValue] = useState(''); // Node input field value
+    const [edgeFrom, setEdgeFrom] = useState(''); // Edge "from" input field value
+    const [edgeTo, setEdgeTo] = useState(''); // Edge "to" input
+    const [graph, setGraph] = useState({ nodes: {}, edges: [] }); // Graph data
+    const [nodePositions, setNodePositions] = useState({}); /// Node positions
+    const edgeToInput = React.useRef(null); // Ref for the edge "to" input
 
+    // Function to fetch graph data from the server
     const fetchGraph = useCallback(async () => {
         try {
             const response = await axios.get('http://localhost:5000/graph');
             console.log('Graph data:', response.data);
             if (response.data.nodes && response.data.edges) {
-                setGraph(response.data);
-                setNodePositions(generateNodePositions(response.data.nodes)); // עדכון מיקומים עם נתונים חדשים
+                setGraph(response.data); // Update graph data (nodes and edges)
+                setNodePositions(generateNodePositions(response.data.nodes)); // Update node positions based on new data
             } else {
                 console.error('Invalid graph data structure:', response.data);
-                setGraph({ nodes: {}, edges: [] });
+                setGraph({ nodes: {}, edges: [] }); // Set graph to empty if data structure is invalid
             }
         } catch (error) {
             console.error('Error fetching graph:', error);
         }
     }, []);
 
+    // Function to generate positions for the nodes
     const generateNodePositions = (nodes) => {
         const positions = {};
         const nodeKeys = Object.keys(nodes);
         const totalNodes = nodeKeys.length;
 
-        // עדכון המיקומים כך שיהיו מפוזרים על פני המשטח
-        const angleIncrement = (2 * Math.PI) / totalNodes; // זווית בין כל צומת
-        const radius = 150; // רדיוס של המעגל שבו הצמתים יימצאו
+        // Calculate positions so that nodes are scattered on the surface
+        const angleIncrement = (2 * Math.PI) / totalNodes; 
+        const radius = 150; 
 
+        // Calculate X and Y positions based on the angle
         nodeKeys.forEach((nodeKey, i) => {
             const angle = angleIncrement * i;
             positions[nodeKey] = {
-                top: Math.sin(angle) * radius + 200, // מרכז על ציר Y
-                left: Math.cos(angle) * radius + 300, // מרכז על ציר X
+                top: Math.sin(angle) * radius + 200, 
+                left: Math.cos(angle) * radius + 300, 
             };
         });
-        console.log('Node positions:', positions); // בדיקה שהמיקומים מתעדכנים
+        console.log('Node positions:', positions); 
         return positions;
     };
 
+    // UseEffect to fetch graph data when the component mounts
     useEffect(() => {
         fetchGraph();
     }, [fetchGraph]);
 
+    // Function to add a new node to the graph
     const addNode = async () => {
-        if (!nodeValue) return; // אם אין ערך, יוצאים מהפונקציה
+        if (!nodeValue) return; // If no value is entered, do nothing
         try {
             await axios.post('http://localhost:5000/graph/node', { node: nodeValue });
             fetchGraph();
@@ -61,6 +66,7 @@ const GraphButtons = () => {
         }
     };
 
+    // Function to remove a node from the graph
     const removeNode = async () => {
         try {
             await axios.delete(`http://localhost:5000/graph/node/${nodeValue}`);
@@ -71,8 +77,9 @@ const GraphButtons = () => {
         }
     };
 
+    // Function to add an edge between two nodes
     const addEdge = async () => {
-        if (!edgeFrom || !edgeTo) return; // אם אין ערכים, יוצאים מהפונקציה
+        if (!edgeFrom || !edgeTo) return; 
         try {
             await axios.post('http://localhost:5000/graph/edge', { from: edgeFrom, to: edgeTo });
             fetchGraph();
@@ -83,6 +90,7 @@ const GraphButtons = () => {
         }
     };
 
+    // Function to remove an edge from the graph
     const removeEdge = async () => {
         try {
             await axios.delete('http://localhost:5000/graph/edge', { data: { from: edgeFrom, to: edgeTo } });
@@ -94,7 +102,7 @@ const GraphButtons = () => {
         }
     };
 
-    // New function to delete the entire graph
+    // New function to delete the entire graph (nodes and edges)
     const deleteGraph = async () => {
         try {
             await axios.delete('http://localhost:5000/graph'); // Adjust the endpoint to delete the whole graph
@@ -106,7 +114,7 @@ const GraphButtons = () => {
         }
     };
 
-    // פונקציה ליצירת חץ בין צמתים
+    // Function to render an edge between two nodes (visual representation)
     const renderEdge = (fromNode, toNode) => {
         const fromPos = nodePositions[fromNode];
         const toPos = nodePositions[toNode];
@@ -116,38 +124,38 @@ const GraphButtons = () => {
         const deltaX = toPos.left - fromPos.left;
         const deltaY = toPos.top - fromPos.top;
         const distance = Math.sqrt(deltaX ** 2 + deltaY ** 2);
-        const angle = Math.atan2(deltaY, deltaX) * (180 / Math.PI);
+        const angle = Math.atan2(deltaY, deltaX) * (180 / Math.PI); // Calculate angle for rotation
     
         return (
             <div
                 className="edge"
                 style={{
-                    width: `${distance - 26}px`, // אורך מקוצר
-                    top: `${fromPos.top + 20}px`, // 20 הוא חצי מגובה הצומת
+                    width: `${distance - 26}px`, 
+                    top: `${fromPos.top + 20}px`, 
                     left: `${fromPos.left + 20}px`,
                     transform: `rotate(${angle}deg)`,
                     position: 'absolute',
                 }}
             >
-                {/* אלמנט לחץ בקצה הקו */}
+                {/* Pressure element at the end of the line */}
                 <div className="arrowhead" />
             </div>
         );
     };
 
-    // פונקציות מאזינות לאירועים
+    // Event listeners for key presses
     const handleNodeKeyPress = (e) => {
-        if (e.key === 'Enter') addNode(); // הוספת צומת
+        if (e.key === 'Enter') addNode(); // Add node when Enter is pressed
     };
 
     const handleEdgeFromKeyPress = (e) => {
         if (e.key === 'Enter') {
-            edgeToInput.current.focus(); // מעביר פוקוס לשדה `edgeTo`
+            edgeToInput.current.focus(); // Focus on the "edgeTo" input field when Enter is pressed
         }
     };
 
     const handleEdgeToKeyPress = (e) => {
-        if (e.key === 'Enter') addEdge(); // הוספת קשת
+        if (e.key === 'Enter') addEdge(); // Add edge when Enter is pressed
     };
 
     return (
@@ -159,7 +167,7 @@ const GraphButtons = () => {
                         value={nodeValue}
                         onChange={(e) => setNodeValue(e.target.value)}
                         placeholder="Node value"
-                        onKeyDown={handleNodeKeyPress} // מאזין לאנטר עבור צומת
+                        onKeyDown={handleNodeKeyPress} 
                     />
                     <button onClick={addNode}>Add Node</button>
                     <button onClick={removeNode}>Remove Node</button>
@@ -168,17 +176,17 @@ const GraphButtons = () => {
                     <input
                         type="text"
                         value={edgeFrom}
-                        onChange={(e) => setEdgeFrom(e.target.value)}
-                        placeholder="From Node"
-                        onKeyDown={handleEdgeFromKeyPress} // מאזין לאנטר כדי לעבור ל־`edgeTo`
+                        onChange={(e) => setEdgeFrom(e.target.value)} 
+                        placeholder="From Node" 
+                        onKeyDown={handleEdgeFromKeyPress} 
                     />
                     <input
                         type="text"
                         value={edgeTo}
                         onChange={(e) => setEdgeTo(e.target.value)}
                         placeholder="To Node"
-                        ref={edgeToInput} // רפרנס לשדה `edgeTo`
-                        onKeyDown={handleEdgeToKeyPress} // מאזין לאנטר כדי להוסיף קשת
+                        ref={edgeToInput} 
+                        onKeyDown={handleEdgeToKeyPress} 
                     />
                     <button onClick={addEdge}>Add Edge</button>
                     <button onClick={removeEdge}>Remove Edge</button>

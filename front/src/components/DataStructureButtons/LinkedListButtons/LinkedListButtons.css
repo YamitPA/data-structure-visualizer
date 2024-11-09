@@ -1,86 +1,89 @@
-/* סגנון לדף הבית */
+/* Style for the homepage container */
 .linked-list-container {
-    display: flex; /* הופך את אלמנט העטיפה ל-Flexbox */
-    flex-direction: column; /* מסדר את הילדים בעמודה */
-    align-items: center; /* מרכז את הילדים (כולל .linked-list-display) */
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
     margin-top: 20px;
-    height: 400px; /* גובה קבוע, אפשר לשנות בהתאם לצורך */
-    overflow: hidden; /* למנוע גלילה נוספת מחוץ לקונטיינר */
+    height: 400px; 
+    overflow: hidden; 
 }
 
+/* Style for the buttons container */
 .linked-list-buttons {
-    position: absolute; /* נשאיר את הכפתורים בצד ימין */
-    right: 20px; /* הכפתורים יהיו במרחק 20px מצד ימין */
-    top: 15%; /* מיקום הכפתורים גבוה מהמרכז */
+    position: absolute; 
+    right: 20px; 
+    top: 15%; 
     display: flex;
-    flex-direction: column; /* סידור כפתורים בעמודה */
-    align-items: flex-end; /* מיקום הכפתורים בכיוון ימין */
+    flex-direction: column; 
+    align-items: flex-end; 
 }
 
+/* Style for input fields inside the buttons container */
 .linked-list-buttons input {
-    margin-bottom: 10px; /* מרווח בין שדה הטקסט לכפתורים */
+    margin-bottom: 10px; 
     padding: 8px;
-    width: 200px; /* גובה קבוע לשדה */
+    width: 200px; 
 }
 
+/* Style for the buttons inside the buttons container */
 .linked-list-buttons button {
-    margin-bottom: 10px; /* מרווח בין כפתורים */
-    padding: 10px 15px; /* שטח לחיצה נעים */
+    margin-bottom: 10px; 
+    padding: 10px 15px; 
     cursor: pointer;
-    width: 100px; /* רוחב קבוע לכל הכפתורים */
+    width: 100px; 
 }
 
-
-/* עיצוב לתצוגת הרשימה המקושרת */
+/* Style for the linked list display area */
 .linked-list-display {
     display: flex;
-    justify-content: center; /* מרכז את כל המבנה לרוחב */
-    align-items: center; /* מיקום אנכי ממורכז */
-    margin-top: 20px; /* מרווח כדי למקם מתחת לכותרת */
+    justify-content: center; 
+    align-items: center; 
+    margin-top: 20px; 
     padding: 10px;
-    background-color: #f9f9f9; /* רקע בהיר */
-    border: 1px solid #ddd; /* גבול קל סביב */
-    border-radius: 5px; /* פינות מעוגלות */
-    min-height: 100px; /* גובה מינימלי כדי למנוע דחיסה */
-    max-width: calc(100% - 290px); /* גבול צדדי של 20 פיקסלים */
-    margin-left: auto; /* ממרכז את הרשימה */
-    margin-right: auto; /* ממרכז את הרשימה */
-    overflow-y: auto; /* יצירת גלילה כאשר יש יותר מדי אלמנטים */
+    background-color: #f9f9f9; 
+    border: 1px solid #ddd; 
+    border-radius: 5px; 
+    min-height: 100px; 
+    max-width: calc(100% - 290px); 
+    margin-left: auto; 
+    margin-right: auto; 
+    overflow-y: auto; 
 }
 
-/* עיצוב לעיגולים */
+/* Style for the linked list container (the circles) */
 .linked-list {
-    display: flex; /* סידור בעזרת flexbox */
-    flex-wrap: wrap; /* מעבר לשורות חדשות כאשר אין מקום */
-    justify-content: center; /* מרכז את העיגולים */
-    align-items: center; /* מיקום אנכי ממורכז */
-    max-width: 100%; /* התאמה לרוחב */
-    margin: 0 auto; /* מרכז את הרשימה */
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: center; 
+    align-items: center; 
+    max-width: 100%; 
+    margin: 0 auto; 
 }
 
+/* Style for individual nodes (the circles in the linked list) */
 .linked-list-node {
-    width: 50px; /* גובה ורוחב קבוע לעיגולים */
+    width: 50px; 
     height: 50px;
-    margin: 10px; /* מרווחים בין העיגולים */
-    background-color: #c4627b; /* צבע הרקע של העיגולים */
-    color: white; /* צבע הטקסט */
-    display: flex; /* סידור של תוכן בתוך העיגול */
-    justify-content: center; /* מרכז את הטקסט */
-    align-items: center; /* מיקום אנכי ממורכז */
-    border-radius: 50%; /* עיגול מושלם */
-    font-size: 18px; /* גודל טקסט */
-    box-sizing: border-box; /* לוודא שה-padding וה-border נכללים ברוחב */
+    margin: 10px; 
+    background-color: #c4627b; 
+    color: white; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    border-radius: 50%; 
+    font-size: 18px; 
+    box-sizing: border-box; 
 }
 
-/* עיצוב לחיצים */
+/* Style for arrows between nodes */
 .arrow {
-    font-size: 24px; /* גודל של החיצים */
-    margin: 0 10px; /* מרווחים בין העיגולים לחיצים */
-    color: #333; /* צבע החיצים */
+    font-size: 24px; 
+    margin: 0 10px; 
+    color: #333; 
 }
 
-/* סגנון הפוטר של העמוד */
+/* Style for the footer of the page */
 .footer {
-    margin-top: 110px; /* מרווח למטה */
-    text-align: center; /* יישור מרכזי */
+    margin-top: 110px; 
+    text-align: center; 
 }

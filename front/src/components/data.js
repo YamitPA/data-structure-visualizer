@@ -1,4 +1,5 @@
 
+// Array of data structures with value and label for display
 export const structures = [
     { value: 'linked-lists', label: 'Linked Lists' },
     { value: 'stacks', label: 'Stacks' },
@@ -6,6 +7,7 @@ export const structures = [
     { value: 'graphs', label: 'Graphs' },
 ];
 
+// Array of algorithms with value and label for display
 export const algorithms = [
 
     { value: 'bfs', label: 'BFS' },

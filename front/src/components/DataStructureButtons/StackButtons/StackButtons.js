@@ -1,77 +1,82 @@
 import React, { useState } from 'react';
-import axios from 'axios'; // ייבוא axios לשליחת בקשות HTTP
-import './StackButtons.css'; // ייבוא קובץ ה-CSS
+import axios from 'axios'; 
+import './StackButtons.css'; 
 
 
 const StackButtons = () => {
-    const [inputValue, setInputValue] = useState('');
-    const [stack, setStack] = useState([]); // שמירה על מצב המחסנית
-    const [topItem, setTopItem] = useState(null); // שמירה על הפריט העליון
+    const [inputValue, setInputValue] = useState(''); // State for user input
+    const [stack, setStack] = useState([]); // State to manage the current stack
+    const [topItem, setTopItem] = useState(null); // State to track the top item in the stack
 
-
+    
+    // Function to add an item to the stack
     const pushItem = async () => {
         try {
             const response = await axios.post('http://localhost:5000/stack/push', {
                 value: inputValue
             });
-            setStack(response.data.stack); // עדכון המצב עם המחסנית המלאה
-            setInputValue(''); // נקה את הקלט
+            setStack(response.data.stack); // Updates the stack state with the full stack data from the server
+            setInputValue(''); // Clears the input field after the push
         } catch (error) {
             console.error('Error pushing item:', error);
         }
     };
 
-    // פונקציה שמופעלת בלחיצת מקש
+    // Function to handle key events for input
     const handleKeyDown = (event) => {
         if (event.key === 'Enter') {
-            pushItem(); // קרא לפונקציה להוספת פריט אם נלחץ אנטר
+            pushItem(); 
         }
     };
 
+    // Function to remove the top item from the stack
     const popItem = async () => {
         try {
             const response = await axios.delete('http://localhost:5000/stack/pop');
-            setStack(response.data.stack); // עדכון המצב עם המחסנית המלאה לאחר ההסרה
+            setStack(response.data.stack); // Updates the stack state after popping an item
         } catch (error) {
             console.error('Error popping item:', error);
         }
     };
 
+    // Function to get the top item in the stack without removing it
     const peekItem = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/stack/peek'); // הוסף את הנתיב המתאים
-            setTopItem(response.data); // שמור את הפריט העליון
+            const response = await axios.get('http://localhost:5000/stack/peek'); 
+            setTopItem(response.data); // Sets the top item in state
         } catch (error) {
             console.error('Error peeking item:', error);
         }
     };
 
+    // Function to fetch the current state of the stack
     const getStack = async () => {
         try {
             const response = await axios.get('http://localhost:5000/stack');
-            setStack(response.data); // עדכון המחסנית שהתקבלה מהשרת
+            setStack(response.data); 
         } catch (error) {
             console.error('Error getting stack:', error);
         }
     };
 
+    // Function to clear all items in the stack
     const clearStack = async () => {
         try {
             const response = await axios.delete('http://localhost:5000/stack/clear');
-            setStack(response.data); // ניקוי המחסנית
+            setStack(response.data); // Clears the stack state after deletion
         } catch (error) {
             console.error('Error clearing stack:', error);
         }
     };
 
     return (
-        <div className="Stack-container"> {/* אלמנט עטיפה */}
+        <div className="Stack-container"> {/* Wrapper element for stack UI */}
             <div className="Stack-buttons button">
                 <input
                     type="text"
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
-                    onKeyDown={handleKeyDown} // הוסף את ההאזנה ללחיצה
+                    onKeyDown={handleKeyDown} 
                     placeholder="Enter value for Stack"
                 />
                 <button onClick={pushItem}>Push Item</button>
@@ -81,7 +86,7 @@ const StackButtons = () => {
                 <button onClick={clearStack}>Clear Stack</button>
             </div>
             
-            {/* הצגת המחסנית */}
+            {/* Display of the stack */}
             <div className="Stack-display">
                 {stack.length > 0 ? (
                     <ul>
@@ -94,7 +99,7 @@ const StackButtons = () => {
                 ) : (
                     <p className="Stack-empty">The stack is empty</p>
                 )}
-                {topItem && <p>Top Item: {topItem}</p>} {/* הצגת הפריט העליון */}
+                {topItem && <p>Top Item: {topItem}</p>} {/* Display each item in the stack */}
             </div>
         </div>
     );

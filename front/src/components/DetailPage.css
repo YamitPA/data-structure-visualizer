@@ -1,28 +1,31 @@
-/* סגנון לדף הפרטים */
+/* Centers and pads detail page content */
 .detail-container {
     text-align: center;
     padding: 20px;
-    position: relative; /* מאפשר לכפתור למקם את עצמו יחסית לקונטיינר */
+    position: relative; 
 }
 
+/* Styles header with bottom margin */
 .header {
     margin-bottom: 20px;
 }
 
+/* Adds top margin to main content section */
 .main-content {
     margin-top: 20px;
 }
 
+/* Adds margin and padding to illustration section */
 .illustration {
     margin-top: 20px;
     padding: 10px;
 }
 
-/* סגנון לכפתור חזרה הביתה */
+/* Styles back button with position, padding, and color */
 .back-button {
     position: absolute;
-    bottom: 70px; /* מרחק מהתחתית */
-    left: 20px; /* מרחק מהצד השמאלי */
+    bottom: 70px; 
+    left: 20px; 
     padding: 10px 20px;
     background-color: #c4627b;
     color: rgb(255, 255, 255);
@@ -31,6 +34,7 @@
     cursor: pointer;
 }
 
+/* Changes back button color on hover */
 .back-button:hover {
-    background-color: #7a297a; /* שינוי צבע כשלוחצים */
+    background-color: #7a297a; 
 }

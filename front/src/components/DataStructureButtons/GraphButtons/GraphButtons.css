@@ -1,10 +1,12 @@
+/* Container for the graph buttons, centering the buttons and aligning them to the top */
 .Graph-buttons-container {
     display: flex;
-    justify-content: center; /* למרכז את הגרף */
-    align-items: flex-start; /* למקם את הכפתורים בחלק העליון */
-    margin: 20px; /* מרווח מסביב לכל התוכן */
+    justify-content: center; 
+    align-items: flex-start; 
+    margin: 20px; 
 }
 
+/* Style for the buttons section, fixed to the right side */
 .Graph-buttons {
     position: fixed;
     right: 20px;
@@ -15,19 +17,22 @@
     z-index: 1000;
 }
 
+/* Style for input fields within the buttons section */
 .Graph-buttons input {
-    margin-bottom: 5px; /* הגדל את המרווח */
+    margin-bottom: 5px; 
     padding: 8px;
     width: 200px;
 }
 
+/* Style for buttons within the Graph-buttons section */
 .Graph-buttons button {
-    margin-bottom: 5px; /* רווח בין כפתורים */
+    margin-bottom: 5px; 
     padding: 10px 15px;
     cursor: pointer;
     width: 100px;
 }
 
+/* Grouping for add/remove node buttons */
 .Graph-buttons .add-remove-node-buttons {
     margin-bottom: 10px; 
     display: flex;
@@ -35,6 +40,7 @@
     align-items: flex-end;
 }
 
+/* Section for edge management buttons */
 .Graph-buttons .edge-section {
     margin-top: 30px; 
     display: flex;
@@ -42,27 +48,31 @@
     align-items: flex-end;
 }
 
+/* Style for input fields inside the edge management section */
 .Graph-buttons .edge-section input {
     margin-bottom: 10px;
     padding: 8px;
     width: 200px;
 }
 
+/* Style for edge-related buttons, with space at the top */
 .Graph-buttons .edge-section button {
     margin-top: 10px; 
 }
 
+/* Graph container for displaying the graph nodes and edges */
 .Graph-container {
     position: relative;
-    width: 600px; /* רוחב הגרף */
-    height: 400px; /* גובה הגרף */
+    width: 600px; 
+    height: 400px; 
     border: 1px solid lightgray;
-    margin-top: 20px; /* מרווח בין הכפתורים לגרף */
-    display: flex; /* למרכז את הצמתים והקשתות */
+    margin-top: 20px; 
+    display: flex; 
     justify-content: center;
     align-items: center;
 }
 
+/* Style for the graph nodes */
 .Graph-node {
     position: absolute;
     width: 40px;
@@ -77,20 +87,22 @@
     z-index: 1;
 }
 
+/* Style for edges connecting the nodes */
 .edge {
     position: absolute;
     background-color: black;
-    height: 2px; /* Height for the edge */
+    height: 2px; 
     transform-origin: left center;
 }
 
+/* Style for the arrowhead at the end of the edge */
 .arrowhead {
     width: 0;
     height: 0;
-    border-left: 12px solid black; /* אורך החץ */
-    border-top: 8px solid transparent; /* רוחב חלק עליון */
-    border-bottom: 8px solid transparent; /* רוחב חלק תחתון */
+    border-left: 12px solid black; 
+    border-top: 8px solid transparent; 
+    border-bottom: 8px solid transparent; 
     position: absolute;
-    right: -6px; /* התאמת ראש החץ לקצה הקו */
-    top: -6px; /* התאמה אנכית כך שהחץ יישב במרכז הקו */
+    right: -6px; 
+    top: -6px; 
 }

@@ -1,39 +1,40 @@
-/* סגנון לדף הבית */
+/* Style for home page container */
 .home-container {
     text-align: center;
     padding: 20px;
-    position: relative; /* מאפשר למקם את הרקע באופן מוחלט */
-    min-height: 100vh; /* לוודא שהקונטיינר ממלא את כל גובה החלון */
-    overflow: hidden; /* לא להראות את התמונה מעבר לגבולות */
+    position: relative; 
+    min-height: 100vh; 
+    overflow: hidden; 
 }
 
+/* Background image styling */
 .background-image {
-    position: absolute; /* מיקום מוחלט */
+    position: absolute; 
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('./images/Background_image.PNG'); /* עדכן את הנתיב לתמונה */
-    background-size: cover; /* מכסה את כל הקונטיינר */
-    background-position: center; /* ממקם את התמונה במרכז */
-    background-repeat: no-repeat; /* לא לחזור על התמונה */
-    opacity: 0.5; /* שקיפות של 50% על התמונה */
-    z-index: -1; /* מוודא שהתמונה מתחת לתוכן */
+    background-image: url('./images/Background_image.PNG');
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    opacity: 0.5; 
+    z-index: -1; 
 }
 
-/* סגנון לכותרת */
+/* Header styling */
 .header {
     margin-bottom: 20px;
 }
 
-/* סגנון לתוכן המרכזי */
+/* Main content styling */
 .main-content {
     margin-top: 30px;
 }
 
-/* סגנון לכפתור */
+/* General button styling */
 button {
-    margin-top: 20px; /* מרווח עליון של 20px */
+    margin-top: 20px; 
     padding: 10px 20px;
     background-color: #c4627b;
     color: white;
@@ -43,12 +44,12 @@ button {
     font-size: 16px;
 }
 
-/* הגדרת הכפתור בעת ריחוף */
+/* Button hover effect */
 button:hover {
     background-color: #7a297a;
 }
 
-/* סגנון לפוטר */
+/* Footer styling */
 .footer {
     margin-top: 20px;
 }
