@@ -26,7 +26,7 @@ const HomePage = () => {
             <header className="header">
                 <h1>An interactive analyzer for data structures and algorithms</h1>
                 <p>Welcome!</p>
-                <p>Choose a data structure and start exploring algorithms</p>
+                <p>Choose a data structure or algorithm to start exploring</p>
             </header>
             <main className="main-content">
                 <SelectOption

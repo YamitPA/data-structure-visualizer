@@ -7,8 +7,8 @@ code {
 /*General definitions*/
 body {
   margin: 0;
-  font-family: 'Ariel', sans-serif;
-  background-color: rgba(255, 200, 200, 0.5); /*Light red background color*/
+  font-family: 'Trebuchet MS', sans-serif;
+  background-color: rgba(143, 94, 94, 0.5); /*Light red background color*/
   color: #333; /*Dark text color for good readability*/
   background-image: url('./components/images/Background_image.PNG');
   background-size: cover; /*To adjust the image to height and width*/
@@ -19,7 +19,7 @@ body {
 /*Design for the main container*/
 .App {
   text-align: center;
-  padding: 20px;
+  padding: 10px;
   backdrop-filter: blur(5px); /*Adds a blur effect to the background*/
   border-radius: 10px; /*Circle corners*/
   background-color: rgba(255, 255, 255, 0.8); /*Semi-transparent white background color*/
@@ -40,8 +40,8 @@ h2 {
 
 /*Paragraph formatting*/
 p {
-  font-size: 1.2em;
-  color: #666; /*Dark gray color*/
+  font-size: 1.4em;
+  color: #874e4e; /*Dark gray color*/
 }
 
 /*Links*/
@@ -58,7 +58,6 @@ p {
 .footer {
   margin-top: 20px;
   font-size: 0.8em;
-  color: #888; /*Dark gray color*/
 }
 
 /*Dealing with images*/

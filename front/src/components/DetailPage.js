@@ -56,7 +56,8 @@ const DetailPage = () => {
                 <div className="illustration">
                     {/* Shows message based on selected structure or algorithm */}
                     {selectedStructure || selectedAlgorithm ? (
-                        <p>
+                        <p style={{ textDecoration: 'underline' }}>
+                            You selected - {}
                             {selectedStructure ? selectedStructure : ''} 
                             {selectedStructure && selectedAlgorithm ? ' with ' : ''} 
                             {selectedAlgorithm ? selectedAlgorithm : ''}

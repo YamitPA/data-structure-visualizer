@@ -19,6 +19,7 @@
 
 /* Style for input fields within the buttons section */
 .Graph-buttons input {
+    font-family: 'Trebuchet MS', sans-serif;
     margin-bottom: 5px; 
     padding: 8px;
     width: 200px;
