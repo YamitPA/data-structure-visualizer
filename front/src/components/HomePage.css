@@ -34,6 +34,7 @@
 
 /* General button styling */
 button {
+    font-family: 'Trebuchet MS', sans-serif;
     margin-top: 20px; 
     padding: 10px 20px;
     background-color: #c4627b;
@@ -51,5 +52,6 @@ button:hover {
 
 /* Footer styling */
 .footer {
+    font-family: 'Trebuchet MS', sans-serif;
     margin-top: 20px;
 }

@@ -28,6 +28,7 @@
 
 /* Styling for the input field */
 input {
+    font-family: 'Trebuchet MS', sans-serif;
     padding: 8px;
     font-size: 16px;
     width: 180px;
